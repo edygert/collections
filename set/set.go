@@ -19,6 +19,14 @@ func New(initial ...interface{}) *Set {
 	return s
 }
 
+func (this *Set) AsList() []interface{} {
+	result := []interface{}{}
+	for k, _ := range this.hash {
+		result = append(result, k)
+	}
+	return result
+}
+
 // Find the difference between two sets
 func (this *Set) Difference(set *Set) *Set {
 	n := make(map[interface{}]nothing)
